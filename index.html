@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ကစားသမား စာရင်း (No. | Username)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+            
+            /* Christmas Theme Background & Effects - Updated to Deep Dark Green #183513 */
+            background-color: #183513; /* Deep Dark Green (User specified) */
+            background-image: linear-gradient(to bottom, #183513, #2A6520); /* Gradient to a slightly lighter deep green */
+            overflow: hidden; 
+            position: relative;
+            padding-top: 6rem; /* Add top padding to body to account for fixed nav bar (h-24 ~ 6rem) */
+        }
+        
+        /* --- Snowflakes CSS --- */
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .snowflake {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+            will-change: transform;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            z-index: 10;
+        }
+
+        /* List scrollbar style for better looks (Dark Green track) */
+        #list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #list-container::-webkit-scrollbar-track {
+            background: #0f1c09; /* Even darker green track */
+            border-radius: 10px;
+        }
+
+        #list-container::-webkit-scrollbar-thumb {
+            background: #fef3c7; /* Yellow thumb (kept for contrast) */
+            border-radius: 10px;
+        }
+
+        /* Table styling for zebra stripes and borders - Adjusted for Darker Green */
+        .player-row:nth-child(even) {
+            background-color: rgba(30, 70, 22, 0.6); /* Darker Green transparency */
+        }
+        .player-row:nth-child(odd) {
+            background-color: rgba(42, 101, 32, 0.6); /* Slightly Lighter Green transparency */
+        }
+
+        /* Styling for cells */
+        .player-cell {
+            padding: 10px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(254, 243, 199, 0.2); /* Light gold/yellow border */
+        }
+    </style>
+</head>
+<body class="antialiased text-white relative pt-24 pb-10"> 
+    
+    <!-- NEW: Fixed Navigation Bar (Logo and Contact Button) - Updated Background -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1E4616] shadow-xl border-b border-yellow-300/50 h-20 flex items-center">
+        <div class="container mx-auto px-4 flex justify-between items-center w-full">
+            <!-- Logo Placeholder (Left) -->
+            <div class="flex items-center space-x-3">
+                <!-- LOGO IMAGE CHANGE HERE: သင့် Logo ပုံ၏ Public URL ဖြင့် အစားထိုးပါ -->
+                <!-- ယာယီအားဖြင့် ခရစ္စမတ်အပြင်အဆင် Logo တစ်ခုကို ထည့်သွင်းထားသည် -->
+                <!-- UPDATED: rounded-full ကို rounded-lg ဖြင့် အစားထိုး၍ လေးထောင့်ပုံစံ ပြုလုပ်ထားသည် -->
+                <img src="https://share.cdn.viber.com/pg_download?id=0-04-06-d6132c86ce2ee6a98ff88a6122bc24c865bc772a4abbab6a9ba76575960b75f7&filetype=jpg&type=icon" 
+                     alt="GKK 99 Logo" 
+                     class="h-10 w-10 rounded-lg border-2 border-yellow-300 object-cover"
+                     onerror="this.src='https://placehold.co/40x40/fef3c7/183513?text=L';"
+                >
+                <span class="text-xl font-bold text-yellow-300 hidden sm:inline">GKK99</span>
+            </div>
+            
+            <!-- Contact Button (Right) - Updated to navigate to https://gkk99cta.mssg.me/ -->
+            <button onclick="window.location.href='https://gkk99cta.mssg.me/'"
+                    class="px-4 py-2 bg-yellow-400 text-[#183513] font-semibold rounded-full shadow-md hover:bg-yellow-300 transition duration-300 transform hover:scale-105 active:scale-95">
+                ဆက်သွယ်ရန်
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Content Wrapper for the Player List -->
+    <div class="container mx-auto px-4 w-full max-w-sm md:max-w-md lg:max-w-lg z-10 relative">
+
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-4xl font-extrabold text-yellow-300 drop-shadow-lg">
+                Congratulations
+            </h1>
+            <p class="text-lg text-white-200 mt-1">
+                2026 နှစ်သစ် ကံကောင်းခြင်း ငွေသွင်းမလို 
+အခမဲ့ဘောနပ်ကို Channel Join ရရှိသွားသောမန်ဘာများ
+            </p>
+        </header>
+
+        <!-- Main Content Area: Player List Table - Updated Background -->
+        <div id="list-container" 
+             class="bg-[#1E4616]/70 rounded-xl shadow-2xl backdrop-blur-sm border border-[#2A6520]/50 overflow-hidden overflow-y-auto h-[70vh] w-full transition duration-500">
+            
+            <table class="min-w-full divide-y divide-[#2A6520]">
+                <!-- Column Header Row - Updated Background -->
+                <thead class="bg-[#1E4616] sticky top-0 z-20 shadow-lg border-b border-yellow-300">
+                    <tr>
+                        <!-- Column 1: No -->
+                        <th scope="col" class="player-cell w-1/4 font-extrabold text-sm uppercase tracking-wider text-yellow-300">
+                            No
+                        </th>
+                        <!-- Column 2: Username -->
+                        <th scope="col" class="player-cell w-3/4 font-extrabold text-sm uppercase tracking-wider text-yellow-300">
+                            Username
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="player-table-body" class="bg-transparent divide-y divide-[#2A6520]">
+                    <!-- Player rows will be injected here by JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- JavaScript to create the Player List and Snowflakes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('player-table-body');
+            const body = document.body;
+            const SNOWFLAKE_COUNT = 100;
+
+            if (!tableBody) return;
+
+            // --- 1. Username ကို တစ်လုံးခြား (*) ဖြင့် အစားထိုးသည့် Function ---
+            function maskUsername(username) {
+                if (!username) return "";
+                let masked = "";
+                for (let i = 0; i < username.length; i++) {
+                    // အက္ခရာကို နဂိုအတိုင်းထားမည် (0, 2, 4, ... index များ)
+                    if (i % 2 === 0) {
+                        masked += username[i];
+                    } else {
+                        // အက္ခရာကို * ဖြင့် အစားထိုးမည် (1, 3, 5, ... index များ)
+                        masked += '*';
+                    }
+                }
+                return masked;
+            }
+            
+            // --- 2. Snowflakes Creation ---
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+
+                // အရွယ်အစားကို ကျပန်းသတ်မှတ် (1px to 4px)
+                const size = Math.random() * 3 + 1; 
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+
+                // စတင်နေရာကို ကျပန်းသတ်မှတ် (0% to 100%)
+                const startX = Math.random() * 100;
+                snowflake.style.left = `${startX}vw`;
+
+                // Animation ကြာချိန်ကို ကျပန်းသတ်မှတ် (10s and 30s)
+                const duration = Math.random() * 20 + 10; 
+                snowflake.style.animationDuration = `${duration}s`;
+
+                // Animation စတင်ချိန်ကို ကျပန်းသတ်မှတ် (တစ်ပြိုင်တည်း မကျစေရန်)
+                const delay = Math.random() * 15;
+                snowflake.style.animationDelay = `-${delay}s`;
+
+                // မျက်နှာပြင် အပေါ်မှ စတင်စေရန်
+                snowflake.style.top = `${-Math.random() * 100}px`;
+
+                body.appendChild(snowflake);
+            }
+
+            for (let i = 0; i < SNOWFLAKE_COUNT; i++) {
+                createSnowflake();
+            }
+            
+            // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
+            function generatePlayerList() {
+                // သင်ထည့်သွင်းလိုသော Username စာရင်း (စုစုပေါင်း ၁၅၀)
+                const usernames = [
+                    "SomyingYupaphin", "gkk99htoo", "TunWaiSoe9", "testbank99", "Arkarhtet", 
+                    "OOsoe345", "JuuJuu", "ZMA564", "KOMYO7953", "thetkhing", 
+                    "Tun778018", "Wai32", "ayelwinoo", "htwe111", "WaiZinHtet", 
+                    "MiNpaingoo", "Kyawtheinsoe", "tinyu", "NIGHTMARE3", "NgweZinTun", 
+                    "Ethan", "testthb", "thuya111", "kyithar007", "soewin99", 
+                    "Zawmaung", "Min1111", "WintLuu", "kyipyar", "Sp135", 
+                    "kyawlynn", "zarniii", "Heinzawhtet", "Tinkokotun246", "AungSanLin", 
+                    "koko123456789", "Boss654321", "saikoaung", "deerr", "9698103086", 
+                    "mm1420", "testads", "TZA709", "GGGG999", "mgmgsoe90", 
+                    "mgtheinaung", "kyawkyawwin12345", "NoNo1", "MgPhyu", "gamer22", 
+                    "gamer21", "winner22", "winner21", "yongzheng11", "yongzheng9", 
+                    "yongzheng8", "yongzheng7", "yongzheng6", "yongzheng5", "yongzheng4", 
+                    "yongzheng3", "yongzheng2", "yongzheng1", "yongzheng", "yongzhengw", 
+                    "yongzhengwa", "yongzhengwan", "yongzhengwang", "yongzhengwangc", "yongzhengwangch", 
+                    "yongzhengwangcha", "hnin834", "Kohtet08", "test2222", "Hayman", 
+                    "Thet111", "channyeinaung", "khainghtoo", "naylinko", "tzh189234", 
+                    "naykha", "Aungkhant22", "santun", "Bagyilin", "saithtetthu", 
+                    "sai145", "Warrte", "htet1991", "A6872242", "hteat111", 
+                    "Kaung1800", "Sumyat332", "seinkyaw85", "khing234", "ThetNaing123", 
+                    "Karkuzar", "painglay8888", "Eikhin", "Thandarwin", "Kyawthulwin", 
+                    "Zinmoeaung", "phyusin666", "Aung726", "Sein199666666666", "Sawaung", 
+                    "Hanwinaung", "9693290634", "winnin7980", "PTOJADE", "klay153", 
+                    "KyawLinThu", "linlin12345", "testtran123", "thantzinhtet", "PeBee", 
+                    "Thihanlin", "aung9680", "Oomyominko", "khunzaw123", "tha123456", 
+                    "gkk99marmarsoe", "KoPcpc11", "AA3399", "AungZawLatt", "Ohnmarwin", 
+                    "LinHtet1998", "minkhant2006", "Aungsanmin", "chankoko", "zinMinHtut", 
+                    "thathtar", "kyaw5678", "naymyohein", "65432", "kyallay", 
+                    "tuntun890", "kyawko50", "WarZinTun", "kyawzinaung", "Kalayar", 
+                    "kophyo222", "Lin27794", "thanhtikeoo", "test1212", "Zin22", 
+                    "Sataung98jk", "asky25600", "aung2929", "Humhum12345", "Maegyii9930", "nor977"
+                ];
+
+                const fragment = document.createDocumentFragment();
+
+                // စာရင်းထဲမှ Username များကို အသုံးပြုပြီး row များ ဖန်တီးခြင်း
+                const listLength = Math.min(usernames.length, 150);
+
+                for (let i = 0; i < listLength; i++) {
+                    const row = document.createElement('tr');
+                    row.className = "player-row hover:bg-[#2A6520]/70 transition duration-150";
+                    
+                    const playerNumber = i + 1; // 1 ကနေ စရေရန်
+                    // ဤနေရာတွင် maskUsername function ကို ခေါ်ဆိုပြီး နာမည်ကို * ဖြင့် အစားထိုးသည်။
+                    const maskedName = maskUsername(usernames[i]); 
+
+                    row.innerHTML = `
+                        <!-- No. Cell -->
+                        <td class="player-cell whitespace-nowrap text-sm font-medium text-yellow-300">
+                            ${playerNumber}
+                        </td>
+                        <!-- Username Cell -->
+                        <td class="player-cell whitespace-nowrap text-base font-semibold text-white">
+                            ${maskedName}
+                        </td>
+                    `;
+                    fragment.appendChild(row);
+                }
+                tableBody.appendChild(fragment);
+            }
+
+            // စာရင်းကို စတင်ထုတ်လုပ်ခြင်း
+            generatePlayerList();
+        });
+    </script>
+</body>
+</html>
