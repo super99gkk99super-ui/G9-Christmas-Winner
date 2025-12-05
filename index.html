@@ -181,23 +181,58 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // သင်ထည့်သွင်းလိုသော Username စာရင်း (စုစုပေါင်း ၁၅၀)
-                // ဤနေရာတွင် သင်ပေးပို့သော အမည် ၃၀ ဖြင့် အစားထိုးလိုက်ပါပြီ။
+                // Username စာရင်း (စုစုပေါင်း ၁၅၀) - သင်၏အမည် ၃၀ နှင့် မူလ ၁၂၀ တို့ကို စုစည်းထားသည်
                 const usernames = [
+                    // New 30 names
                     "sithu113", "lwin99", "mgmgWin9", "Htetwai99", "hlaing112", 
                     "thant11", "lulu11", "NLK7777MM", "Decbr4", "Lay426", 
                     "Swan77", "htun112", "Zn1234", "Kaung893", "Errorbase", 
                     "nyi8834", "Minthit77", "foechan27", "Htethtet223", "bone22", 
                     "drogon99", "Thitk6463", "Minthit5656", "kohtet5519", "ayethinzar", 
-                    "Junkowin191", "Sawthein", "YeYint2k5", "mgzwenyi", "Mgmggyi1988"
+                    "Junkowin191", "Sawthein", "YeYint2k5", "mgzwenyi", "Mgmggyi1988",
+                    // Remaining 120 names
+                    "SomyingYupaphin", "gkk99htoo", "TunWaiSoe9", "testbank99", "Arkarhtet", 
+                    "OOsoe345", "JuuJuu", "ZMA564", "KOMYO7953", "thetkhing", 
+                    "Tun778018", "Wai32", "ayelwinoo", "htwe111", "WaiZinHtet", 
+                    "MiNpaingoo", "Kyawtheinsoe", "tinyu", "NIGHTMARE3", "NgweZinTun", 
+                    "Ethan", "testthb", "thuya111", "kyithar007", "soewin99", 
+                    "Zawmaung", "Min1111", "WintLuu", "kyipyar", "Sp135", 
+                    "kyawlynn", "zarniii", "Heinzawhtet", "Tinkokotun246", "AungSanLin", 
+                    "koko123456789", "Boss654321", "saikoaung", "deerr", "9698103086", 
+                    "mm1420", "testads", "TZA709", "GGGG999", "mgmgsoe90", 
+                    "mgtheinaung", "kyawkyawwin12345", "NoNo1", "MgPhyu", "gamer22", 
+                    "gamer21", "winner22", "winner21", "aung174", "Mya12346", 
+                    "Toegyi1234", "min1233", "Kuro221810", "aung9074", "MGK9Vs9", 
+                    "Kuro221810", "Khunthan", "Aung961996", "thansu", "Winsumon", 
+                    "testbank99", "Kaygyi", "Z1986", "zinmin123456", "moemin123456", 
+                    "DawMyint3690", "hnin834", "Kohtet08", "test2222", "Hayman", 
+                    "Thet111", "channyeinaung", "khainghtoo", "naylinko", "tzh189234", 
+                    "naykha", "Aungkhant22", "santun", "Bagyilin", "saithtetthu", 
+                    "sai145", "Warrte", "htet1991", "A6872242", "hteat111", 
+                    "Kaung1800", "Sumyat332", "seinkyaw85", "khing234", "ThetNaing123", 
+                    "Karkuzar", "painglay8888", "Eikhin", "Thandarwin", "Kyawthulwin", 
+                    "Zinmoeaung", "phyusin666", "Aung726", "Sein199666666666", "Sawaung", 
+                    "Hanwinaung", "9693290634", "winnin7980", "PTOJADE", "klay153", 
+                    "KyawLinThu", "linlin12345", "testtran123", "thantzinhtet", "PeBee", 
+                    "Thihanlin", "aung9680", "Oomyominko", "khunzaw123", "tha123456", 
+                    "gkk99marmarsoe", "KoPcpc11", "AA3399", "AungZawLatt", "Ohnmarwin", 
+                    "LinHtet1998", "minkhant2006", "Aungsanmin", "chankoko", "zinMinHtut", 
+                    "thathtar", "kyaw5678", "naymyohein", "65432", "kyallay", 
+                    "tuntun890", "kyawko50", "WarZinTun", "kyawzinaung", "Kalayar", 
+                    "kophyo222", "Lin27794", "thanhtikeoo", "test1212", "Zin22", 
+                    "Sataung98jk", "asky25600", "aung2929", "Humhum12345", "Maegyii9930", "nor977"
                 ];
 
                 const fragment = document.createDocumentFragment();
 
                 // စာရင်းထဲမှ Username များကို အသုံးပြုပြီး row များ ဖန်တီးခြင်း
-                const listLength = usernames.length; // သင့်ရဲ့စာရင်း အရှည်အတိုင်းသာ အသုံးပြုမည်
+                // စာရင်းအရှည်ကို အတိအကျ ၁၅၀ အထိသာ ကန့်သတ်ထားသည်
+                const listLength = 150; 
 
                 for (let i = 0; i < listLength; i++) {
+                    // စာရင်းသည် ၁၅၀ ရှိသောကြောင့် ဤနေရာတွင် မစစ်ဆေးတော့ပါ။
+                    if (i >= usernames.length) break; 
+
                     const row = document.createElement('tr');
                     row.className = "player-row hover:bg-[#2A6520]/70 transition duration-150";
                     
