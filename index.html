@@ -181,56 +181,57 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // Username စာရင်း (စုစုပေါင်း ၁၅၀) - သင်၏အမည် ၃၀ နှင့် မူလ ၁၂၀ တို့ကို စုစည်းထားသည်
+                // အစားထိုးလိုက်သော Username စာရင်းကို အက္ခရာစဉ်အတိုင်း စီထားသည်
                 const usernames = [
-                    // New 30 names
-                    "sithu113", "lwin99", "mgmgWin9", "Htetwai99", "hlaing112", 
-                    "thant11", "lulu11", "NLK7777MM", "Decbr4", "Lay426", 
-                    "Swan77", "htun112", "Zn1234", "Kaung893", "Errorbase", 
-                    "nyi8834", "Minthit77", "foechan27", "Htethtet223", "bone22", 
-                    "drogon99", "Thitk6463", "Minthit5656", "kohtet5519", "ayethinzar", 
-                    "Junkowin191", "Sawthein", "YeYint2k5", "mgzwenyi", "Mgmggyi1988",
-                    // Remaining 120 names
-                    "SomyingYupaphin", "gkk99htoo", "TunWaiSoe9", "testbank99", "Arkarhtet", 
-                    "OOsoe345", "JuuJuu", "ZMA564", "KOMYO7953", "thetkhing", 
-                    "Tun778018", "Wai32", "ayelwinoo", "htwe111", "WaiZinHtet", 
-                    "MiNpaingoo", "Kyawtheinsoe", "tinyu", "NIGHTMARE3", "NgweZinTun", 
-                    "Ethan", "testthb", "thuya111", "kyithar007", "soewin99", 
-                    "Zawmaung", "Min1111", "WintLuu", "kyipyar", "Sp135", 
-                    "kyawlynn", "zarniii", "Heinzawhtet", "Tinkokotun246", "AungSanLin", 
-                    "koko123456789", "Boss654321", "saikoaung", "deerr", "9698103086", 
-                    "mm1420", "testads", "TZA709", "GGGG999", "mgmgsoe90", 
-                    "mgtheinaung", "kyawkyawwin12345", "NoNo1", "MgPhyu", "gamer22", 
-                    "gamer21", "winner22", "winner21", "aung174", "Mya12346", 
-                    "Toegyi1234", "min1233", "Kuro221810", "aung9074", "MGK9Vs9", 
-                    "Kuro221810", "Khunthan", "Aung961996", "thansu", "Winsumon", 
-                    "testbank99", "Kaygyi", "Z1986", "zinmin123456", "moemin123456", 
-                    "DawMyint3690", "hnin834", "Kohtet08", "test2222", "Hayman", 
-                    "Thet111", "channyeinaung", "khainghtoo", "naylinko", "tzh189234", 
-                    "naykha", "Aungkhant22", "santun", "Bagyilin", "saithtetthu", 
-                    "sai145", "Warrte", "htet1991", "A6872242", "hteat111", 
-                    "Kaung1800", "Sumyat332", "seinkyaw85", "khing234", "ThetNaing123", 
-                    "Karkuzar", "painglay8888", "Eikhin", "Thandarwin", "Kyawthulwin", 
-                    "Zinmoeaung", "phyusin666", "Aung726", "Sein199666666666", "Sawaung", 
-                    "Hanwinaung", "9693290634", "winnin7980", "PTOJADE", "klay153", 
-                    "KyawLinThu", "linlin12345", "testtran123", "thantzinhtet", "PeBee", 
-                    "Thihanlin", "aung9680", "Oomyominko", "khunzaw123", "tha123456", 
-                    "gkk99marmarsoe", "KoPcpc11", "AA3399", "AungZawLatt", "Ohnmarwin", 
-                    "LinHtet1998", "minkhant2006", "Aungsanmin", "chankoko", "zinMinHtut", 
-                    "thathtar", "kyaw5678", "naymyohein", "65432", "kyallay", 
-                    "tuntun890", "kyawko50", "WarZinTun", "kyawzinaung", "Kalayar", 
-                    "kophyo222", "Lin27794", "thanhtikeoo", "test1212", "Zin22", 
-                    "Sataung98jk", "asky25600", "aung2929", "Humhum12345", "Maegyii9930", "nor977"
+                    "12345min", "123mc", "135790kyosuke", "19799", "23587", 
+                    "2minhtet", "3mpr3ss", "786678876", "aaasss", "AKO961", 
+                    "Alinlin12", "Angle", "asdko", "AsHtut", "aumg1234", 
+                    "Aung2450", "Aung66690", "Aung760957", "AungAung2", "AungKo969", 
+                    "AungMinThuLaMin", "AungPaing12", "Aungpain", "AungSiThu99", "aungzinmoe19", 
+                    "aungzinmoe1996", "aungzinmoe1997", "Aungzinmoe25", "Aungzin1996", "aye8989", 
+                    "blackfish", "Bruno263", "ChanAye2021", "Chanmyaninmoe132", "ChanNyaninMoe32", 
+                    "Chin6", "ChitGyi199", "chitphoowai", "DOLLARMAN", "Doctor222", 
+                    "dom5355", "EaiMon3", "Eaint1234", "eieinyein12345", "Gkk428747", 
+                    "gkk169", "gjsjbd", "gyingyi", "Hanaye", "happy70", 
+                    "heaven37", "Hein321", "heinlatthtwe268", "heinminhtay", "hninmu", 
+                    "Htoo6", "HtooKhant25", "Hsulay1122", "Htinlinkyaw", "Humhum12345", 
+                    "insane", "jame12468", "Jarnue1234", "joker80", "Joker77777", 
+                    "junior", "kaung68846", "Kaung2147", "kkhhh", "khilt12345", 
+                    "Khin19", "kmm9090", "kmt1989", "Knc2000", "kohein13", 
+                    "kokogyi22", "kokophyo15271", "kokozaw999", "kolinn2001", "Kolay770879", 
+                    "koSoeLwinOo", "kosai760", "kothu765", "kozin007", "kth7600", 
+                    "kyawgyi9000", "kyawkhinelin", "kyawn12345", "KyawKyawWin", "kyawthin", 
+                    "KyawThetAung", "lin455", "linning", "lusoe", "Lusoema", 
+                    "lyn1234", "Maegyii9930", "MaungMaungShaine", "mgsoe", "mgggg", 
+                    "Min1973", "Min23824", "Minhteet660091", "Minaung222", "moemoee1996", 
+                    "Moonf77", "Mouse456", "mpkyawgyi", "Mway123", "Myatel", 
+                    "myanmar268", "myominthu168", "myowin123", "nayaung7406", "NayLin22", 
+                    "neoo123", "Ngalay", "NinNain", "Nyan1997", "nyeinwintaung123", 
+                    "Nzmoon", "Orson", "paytalu19", "phoe15000", 
+                    "Phyo198800", "phyo7219", "phyopyaeaung007", "Phyozaw123456", "phyoWai200", 
+                    "popinjail", "pps15896", "pyaegyi92", "Riummy77", "Saidede", 
+                    "santun123", "Satanmaungmaung", "Sawkhuekhuewar", "sawhtut", "sharrzaw", 
+                    "Shibe22", "Snl123", "Soe124", "SoeGyi1446", "SoeMinHtet123", 
+                    "Sto123", "Suhninwai777", "SuSu23456", "Swe099504", "Terror", 
+                    "ThaeThae123", "thanmyohtun777", "thantoe2023", "tharthar1010", "that114", 
+                    "Thein879", "ThetHtunNaing", "ThetKoOo", "thetmg92", "Thiha2003", 
+                    "Thin25721", "Thuyaaung77", "tiptip9", "truelove", "tuhtuh", 
+                    "tytyty12345", "Ukyaw222", "UTheinZaw", "W12345", "Wailinmaung19070", 
+                    "wai095119", "Win57", "Wm0112", "Xyz420247", "Yam123", 
+                    "yanminaung", "ye2213", "yehtetlin", "yeyeyoung", "yewinhtut7", 
+                    "yuieur", "Yunghtet", "yuyuya", "zaumai", "zawmh", 
+                    "zawza2233", "zawlin222", "zawlinhtet444", "Zawthihako", "ZayarNaing1234", 
+                    "ZeinRJ", "Zero90", "zeyar555", "zero19", "Zin22", 
+                    "Zizi45", "Zm123456", "znt123", "Zuuu4444", "ZwelHtet007"
                 ];
 
                 const fragment = document.createDocumentFragment();
 
-                // စာရင်းထဲမှ Username များကို အသုံးပြုပြီး row များ ဖန်တီးခြင်း
-                // စာရင်းအရှည်ကို အတိအကျ ၁၅၀ အထိသာ ကန့်သတ်ထားသည်
-                const listLength = 150; 
+                // စာရင်းအရှည်ကို အတိအကျ ၂၀၀ အထိသာ ကန့်သတ်ထားသည် (ပံ့ပိုးပေးထားသော စာရင်းတွင် ၃၀၀ ခု ရှိသော်လည်း ၂၀၀ အထိသာ ဖော်ပြသည်)
+                const listLength = 200; 
 
                 for (let i = 0; i < listLength; i++) {
-                    // စာရင်းသည် ၁၅၀ ရှိသောကြောင့် ဤနေရာတွင် မစစ်ဆေးတော့ပါ။
+                    // စာရင်းသည် ၃၀၀ ရှိသောကြောင့် ဤနေရာတွင် မစစ်ဆေးတော့ပါ။
                     if (i >= usernames.length) break; 
 
                     const row = document.createElement('tr');
