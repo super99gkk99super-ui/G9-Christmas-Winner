@@ -1,4 +1,129 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ကစားသမား စာရင်း (No. | Username)</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/lib/index.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background-color: #f3f4f6;
+            
+            /* Christmas Theme Background & Effects - Updated to Deep Dark Green #183513 */
+            background-color: #183513; /* Deep Dark Green (User specified) */
+            background-image: linear-gradient(to bottom, #183513, #2A6520); /* Gradient to a slightly lighter deep green */
+            overflow: hidden; 
+            position: relative;
+            padding-top: 6rem; /* Add top padding to body to account for fixed nav bar (h-24 ~ 6rem) */
+        }
+        
+        /* --- Snowflakes CSS --- */
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .snowflake {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.8;
+            will-change: transform;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            z-index: 10;
+        }
+
+        /* List scrollbar style for better looks (Dark Green track) */
+        #list-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #list-container::-webkit-scrollbar-track {
+            background: #0f1c09; /* Even darker green track */
+            border-radius: 10px;
+        }
+
+        #list-container::-webkit-scrollbar-thumb {
+            background: #fef3c7; /* Yellow thumb (kept for contrast) */
+            border-radius: 10px;
+        }
+
+        /* Table styling for zebra stripes and borders - Adjusted for Darker Green */
+        .player-row:nth-child(even) {
+            background-color: rgba(30, 70, 22, 0.6); /* Darker Green transparency */
+        }
+        .player-row:nth-child(odd) {
+            background-color: rgba(42, 101, 32, 0.6); /* Slightly Lighter Green transparency */
+        }
+
+        /* Styling for cells */
+        .player-cell {
+            padding: 10px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(254, 243, 199, 0.2); /* Light gold/yellow border */
+        }
+    </style>
+</head>
+<body class="antialiased text-white relative pt-24 pb-10"> 
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1E4616] shadow-xl border-b border-yellow-300/50 h-20 flex items-center">
+        <div class="container mx-auto px-4 flex justify-between items-center w-full">
+            <div class="flex items-center space-x-3">
+                <img src="https://placehold.co/40x40/fef3c7/183513?text=L" 
+                     alt="GKK 99 Logo" 
+                     class="h-10 w-10 rounded-lg border-2 border-yellow-300 object-cover"
+                     onerror="this.src='https://placehold.co/40x40/fef3c7/183513?text=L';"
+                >
+                <span class="text-xl font-bold text-yellow-300 hidden sm:inline">GKK99</span>
+            </div>
+            
+            <button onclick="window.location.href='https://gkk99cta.mssg.me/'"
+                    class="px-4 py-2 bg-yellow-400 text-[#183513] font-semibold rounded-full shadow-md hover:bg-yellow-300 transition duration-300 transform hover:scale-105 active:scale-95">
+                ဆက်သွယ်ရန်
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto px-4 w-full max-w-sm md:max-w-md lg:max-w-lg z-10 relative">
+
+        <header class="text-center mb-6">
+            <h1 class="text-4xl font-extrabold text-yellow-300 drop-shadow-lg">
+                Congratulations
+            </h1>
+            <p class="text-lg text-white-200 mt-1">
+                2026 နှစ်သစ် ကံကောင်းခြင်း ငွေသွင်းမလို 
+အခမဲ့ဘောနပ်ကို Channel Join ရရှိသွားသောမန်ဘာများ
+            </p>
+        </header>
+
+        <div id="list-container" 
+             class="bg-[#1E4616]/70 rounded-xl shadow-2xl backdrop-blur-sm border border-[#2A6520]/50 overflow-hidden overflow-y-auto h-[70vh] w-full transition duration-500">
+            
+            <table class="min-w-full divide-y divide-[#2A6520]">
+                <thead class="bg-[#1E4616] sticky top-0 z-20 shadow-lg border-b border-yellow-300">
+                    <tr>
+                        <th scope="col" class="player-cell w-1/4 font-extrabold text-sm uppercase tracking-wider text-yellow-300">
+                            No
+                        </th>
+                        <th scope="col" class="player-cell w-3/4 font-extrabold text-sm uppercase tracking-wider text-yellow-300">
+                            Username
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="player-table-body" class="bg-transparent divide-y divide-[#2A6520]">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tableBody = document.getElementById('player-table-body');
             const body = document.body;
@@ -22,7 +147,7 @@
                 return masked;
             }
             
-            // --- 2. Snowflakes Creation (function definition is kept the same) ---
+            // --- 2. Snowflakes Creation ---
             function createSnowflake() {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
@@ -56,7 +181,7 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // Username စာရင်း (စုစုပေါင်း ၁၅၀) - အသုံးပြုသူ၏ စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
+                // Username စာရင်း (စုစုပေါင်း ၂၂၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
                 const usernames = [
                     "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
                     "test5645", "abc5214", "huilian", "test98745", "waiyan22", 
@@ -106,8 +231,8 @@
 
                 const fragment = document.createDocumentFragment();
 
-                // စာရင်းအရှည်ကို အတိအကျ ၁၅၀ အထိသာ ကန့်သတ်ထားသည်
-                const listLength = 150; 
+                // FIX: Loop count is now correctly set to 220
+                const listLength = 220; 
 
                 for (let i = 0; i < listLength; i++) {
                     if (i >= usernames.length) break; 
@@ -136,3 +261,5 @@
             generatePlayerList();
         });
     </script>
+</body>
+</html>
