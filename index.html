@@ -107,13 +107,13 @@
                 const fragment = document.createDocumentFragment();
 
                 // စာရင်းအရှည်ကို အတိအကျ ၁၅၀ အထိသာ ကန့်သတ်ထားသည်
-                const listLength = 150; 
+                const listLength = 250; 
 
                 for (let i = 0; i < listLength; i++) {
                     if (i >= usernames.length) break; 
 
                     const row = document.createElement('tr');
-                    row.className = "player-row hover:bg-[#2A6520]/70 transition duration-150";
+                    row.className = "player-row hover:bg-[#2A6520]/70 transition duration-250";
                     
                     const playerNumber = i + 1; // 1 ကနေ စရေရန်
                     // ဤနေရာတွင် maskUsername function ကို ခေါ်ဆိုပြီး နာမည်ကို * ဖြင့် အစားထိုးသည်။
@@ -136,3 +136,4 @@
             generatePlayerList();
         });
     </script>
+
