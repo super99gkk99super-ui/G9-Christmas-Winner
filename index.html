@@ -147,7 +147,7 @@
                 return masked;
             }
             
-            // --- 2. Snowflakes Creation (function definition is kept the same) ---
+            // --- 2. Snowflakes Creation ---
             function createSnowflake() {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
@@ -181,7 +181,7 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // Username စာရင်း (စုစုပေါင်း ၂၅၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ် (၂၀၀) နှင့် အပို (၅၀) တို့ကို ပေါင်းစည်းထားသည်
+                // Username စာရင်း (စုစုပေါင်း ၂၅၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
                 const usernames = [
                     "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
                     "test5645", "abc5214", "huilian", "test98745", "waiyan22", 
@@ -226,24 +226,12 @@
                     "aungkyawsoe", "nyi123456", "HtweHtwe", "GDragonKK202", "Kyawg", 
                     "min12345", "waiyan777", "phyo1998", "Thetnaing1996", "NaingNaing", 
                     "sandar123", "qwerty", "sai12345", "hein123", "kyawthu", 
-                    "Bo123456", "khunkhun", "Aa1234", "ThanZawOo", "phyomgmg",
-                    
-                    // Added 50 dummy users to reach 250 count
-                    "mgmg567", "Htetk444", "ayemya1", "linhtet1", "winmya99",
-                    "Thuta789", "AungThura", "Zaymin12", "KoLatt7", "KyawGyi",
-                    "MyoMyo", "NandaWai", "PhyuPhyu", "MgMgLay", "ZawWin123",
-                    "ChitThae", "ThantZin", "NaingLin", "SoeSoe1", "HlaHla2",
-                    "YarZar7", "MinKhant", "ShweSin", "AungPyae", "LinnLatt",
-                    "KyawKyaw", "MoeWai", "WaiYan9", "HtetAung", "ZinThaw",
-                    "PyaeSone", "AungHtet", "AyeAye", "KyawThu9", "ThiriMon",
-                    "MoeThae", "NyiZaw", "TunLin", "MinMin", "AungMin",
-                    "ZinMar", "HninWai", "KoKoA", "ThitSar", "YeeMon",
-                    "HtetLin", "KyawZin", "LinAung", "WinNaing", "ZinYadana"
+                    "Bo123456", "khunkhun", "Aa1234", "ThanZawOo", "phyomgmg"
                 ];
 
                 const fragment = document.createDocumentFragment();
 
-                // FIX: Loop count is now correctly set to 250
+                // FIX: စာရင်းအရှည်ကို (၂၅၀) သို့ ပြောင်းလဲသတ်မှတ်ခြင်း
                 const listLength = 250; 
 
                 for (let i = 0; i < listLength; i++) {
