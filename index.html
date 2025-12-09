@@ -235,7 +235,7 @@
 
                 const fragment = document.createDocumentFragment();
 
-                // FIX: Loop count is now correctly set to 220
+                // FIX: Loop count is correctly set to 220
                 const listLength = 220; 
 
                 for (let i = 0; i < listLength; i++) {
@@ -245,7 +245,7 @@
                     row.className = "player-row hover:bg-[#2A6520]/70 transition duration-150";
                     
                     const playerNumber = i + 1; // 1 ကနေ စရေရန်
-                    // ဤနေရာတွင် ပြင်ဆင်ထားသော maskUsername function ကို ခေါ်ဆိုပြီး နာမည်ကို * ဖြင့် အစားထိုးသည်။
+                    // Masking function ကို အသုံးပြုထားသည်
                     const maskedName = maskUsername(usernames[i]); 
 
                     row.innerHTML = `
