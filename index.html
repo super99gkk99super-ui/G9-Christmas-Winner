@@ -181,7 +181,7 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // Username စာရင်း (စုစုပေါင်း ၂၅၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
+                // Username စာရင်း (စုစုပေါင်း ၂၂၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
                 const usernames = [
                     "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
                     "test5645", "abc5214", "huilian", "test98745", "waiyan22", 
@@ -231,8 +231,8 @@
 
                 const fragment = document.createDocumentFragment();
 
-                // FIX: စာရင်းအရှည်ကို (၂၅၀) သို့ ပြောင်းလဲသတ်မှတ်ခြင်း
-                const listLength = 250; 
+                // FIX: Loop count is now correctly set to 220
+                const listLength = 220; 
 
                 for (let i = 0; i < listLength; i++) {
                     if (i >= usernames.length) break; 
