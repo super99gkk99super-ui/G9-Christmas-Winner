@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ကစားသမား စာရင်း (No. | Username)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/lib/index.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         
@@ -76,7 +76,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1E4616] shadow-xl border-b border-yellow-300/50 h-20 flex items-center">
         <div class="container mx-auto px-4 flex justify-between items-center w-full">
             <div class="flex items-center space-x-3">
-                <img src="https://share.cdn.viber.com/pg_download?id=0-04-06-d6132c86ce2ee6a98ff88a6122bc24c865bc772a4abbab6a9ba76575960b75f7&filetype=jpg&type=icon" 
+                <img src="https://placehold.co/40x40/fef3c7/183513?text=L" 
                      alt="GKK 99 Logo" 
                      class="h-10 w-10 rounded-lg border-2 border-yellow-300 object-cover"
                      onerror="this.src='https://placehold.co/40x40/fef3c7/183513?text=L';"
@@ -227,6 +227,8 @@
                     "min12345", "waiyan777", "phyo1998", "Thetnaing1996", "NaingNaing", 
                     "sandar123", "qwerty", "sai12345", "hein123", "kyawthu", 
                     "Bo123456", "khunkhun", "Aa1234", "ThanZawOo", "phyomgmg",
+                    
+                    // Added 50 dummy users to reach 250 count
                     "mgmg567", "Htetk444", "ayemya1", "linhtet1", "winmya99",
                     "Thuta789", "AungThura", "Zaymin12", "KoLatt7", "KyawGyi",
                     "MyoMyo", "NandaWai", "PhyuPhyu", "MgMgLay", "ZawWin123",
@@ -241,7 +243,7 @@
 
                 const fragment = document.createDocumentFragment();
 
-                // စာရင်းအရှည်ကို (၂၅၀) အထိ ပြောင်းလဲသတ်မှတ်ခြင်း
+                // FIX: Loop count is now correctly set to 250
                 const listLength = 250; 
 
                 for (let i = 0; i < listLength; i++) {
@@ -273,4 +275,3 @@
     </script>
 </body>
 </html>
-
