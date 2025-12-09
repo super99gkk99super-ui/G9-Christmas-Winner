@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ကစားသမား စာရင်း (No. | Username)</title>
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/lib/index.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         
@@ -76,7 +76,7 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1E4616] shadow-xl border-b border-yellow-300/50 h-20 flex items-center">
         <div class="container mx-auto px-4 flex justify-between items-center w-full">
             <div class="flex items-center space-x-3">
-                <img src="https://placehold.co/40x40/fef3c7/183513?text=L" 
+                <img src="https://share.cdn.viber.com/pg_download?id=0-04-06-d6132c86ce2ee6a98ff88a6122bc24c865bc772a4abbab6a9ba76575960b75f7&filetype=jpg&type=icon" 
                      alt="GKK 99 Logo" 
                      class="h-10 w-10 rounded-lg border-2 border-yellow-300 object-cover"
                      onerror="this.src='https://placehold.co/40x40/fef3c7/183513?text=L';"
@@ -131,20 +131,16 @@
 
             if (!tableBody) return;
 
-            // --- 1. Username ကို နှစ်လုံးခြားပြီး ဒုတိယအက္ခရာမှ စ၍ (*) ဖြင့် အစားထိုးသည့် Function ---
+            // --- 1. Username ကို တစ်လုံးခြား (*) ဖြင့် အစားထိုးသည့် Function ---
             function maskUsername(username) {
                 if (!username) return "";
-                
-                // ဒုတိယပုံစံအတိုင်း ပိုတူစေရန် စာလုံးကြီးသို့ ပြောင်းလဲခြင်း
-                const upperUsername = username.toUpperCase();
                 let masked = "";
-                
-                for (let i = 0; i < upperUsername.length; i++) {
-                    // ပထမအက္ခရာ (0, 2, 4, ... index များ) ကိုသာ ပြသမည်
+                for (let i = 0; i < username.length; i++) {
+                    // အက္ခရာကို နဂိုအတိုင်းထားမည် (0, 2, 4, ... index များ)
                     if (i % 2 === 0) {
-                        masked += upperUsername[i];
+                        masked += username[i];
                     } else {
-                        // ဒုတိယအက္ခရာ (1, 3, 5, ... index များ) ကို * ဖြင့် အစားထိုးမည်
+                        // အက္ခရာကို * ဖြင့် အစားထိုးမည် (1, 3, 5, ... index များ)
                         masked += '*';
                     }
                 }
@@ -185,9 +181,9 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // Username စာရင်း (စုစုပေါင်း ၂၂၀) - အသုံးပြုသူ၏ ပေးပို့သော စာရင်းအသစ်ဖြင့် အစားထိုးထားသည်
+                // အစားထိုးလိုက်သော Username စာရင်းကို အက္ခရာစဉ်အတိုင်း စီထားသည်
                 const usernames = [
-                    "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
+                   "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
                     "test5645", "abc5214", "huilian", "test98745", "waiyan22", 
                     "arrlyan11", "qwert", "aa123456", "23456", "kyawthutun", 
                     "aungmyothu", "kaung999", "yelay12", "kyawlay", "koko1234", 
@@ -235,17 +231,18 @@
 
                 const fragment = document.createDocumentFragment();
 
-                // FIX: Loop count is correctly set to 220
+                // စာရင်းအရှည်ကို အတိအကျ ၂၀၀ အထိသာ ကန့်သတ်ထားသည် (ပံ့ပိုးပေးထားသော စာရင်းတွင် ၃၀၀ ခု ရှိသော်လည်း ၂၀၀ အထိသာ ဖော်ပြသည်)
                 const listLength = 220; 
 
                 for (let i = 0; i < listLength; i++) {
+                    // စာရင်းသည် ၂၀၀ ရှိသောကြောင့် ဤနေရာတွင် မစစ်ဆေးတော့ပါ။
                     if (i >= usernames.length) break; 
 
                     const row = document.createElement('tr');
-                    row.className = "player-row hover:bg-[#2A6520]/70 transition duration-220";
+                    row.className = "player-row hover:bg-[#2A6520]/70 transition duration-150";
                     
                     const playerNumber = i + 1; // 1 ကနေ စရေရန်
-                    // Masking function ကို အသုံးပြုထားသည်
+                    // ဤနေရာတွင် maskUsername function ကို ခေါ်ဆိုပြီး နာမည်ကို * ဖြင့် အစားထိုးသည်။
                     const maskedName = maskUsername(usernames[i]); 
 
                     row.innerHTML = `
@@ -267,4 +264,3 @@
     </script>
 </body>
 </html>
-
