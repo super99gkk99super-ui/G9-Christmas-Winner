@@ -181,67 +181,56 @@
             
             // --- 3. Player List Generation (ကစားသမားစာရင်း ထုတ်လုပ်ခြင်း) ---
             function generatePlayerList() {
-                // မူရင်းအမည် ၂၂၀ မှ ပထမ ၁၇၀ ကိုယူကာ၊ အမည်သစ် ၃၀ ကို နောက်ဆုံးမှ ပေါင်းထည့်ပြီး စုစုပေါင်း ၂၀၀ အတိ ပြုလုပ်ထားသော စာရင်း
-                const originalUsernames170 = [
-                   "qatest998", "qatest997", "hkayhkay007", "jdjfsll545", "minaung", 
-                    "test5645", "abc5214", "huilian", "test98745", "waiyan22", 
-                    "arrlyan11", "qwert", "aa123456", "23456", "kyawthutun", 
-                    "aungmyothu", "kaung999", "yelay12", "kyawlay", "koko1234", 
-                    "yannaing", "nay12345", "aa12345", "nay1234", "kyawzaya", 
-                    "nyein", "khinglay", "winhtut", "aung1", "koko12", 
-                    "yeminthein", "thargyi", "maythu", "abc111", "Zinmyo", 
-                    "hlaing", "Kokoaung", "lucky", "Thura", "test333", 
-                    "arkaroo", "myolay", "joker12", "Htet123", "Kokosoe", 
-                    "Aungtrz509", "GKK77777", "aungzin", "aung121120", "jimmywan13", 
-                    "Yamin23", "thurain56", "khan1980", "PK1999", "heinko", 
-                    "Sailu", "test2589", "hein429321139", "sainoung", "TinNaingTun13579", 
-                    "pyaekhaing12456", "sailay", "zinminaung", "saimyat", "Aung1234567890", 
-                    "Azann", "Soethuaung", "ngelay", "papawin", "Blakn", 
-                    "linn123", "Kopaye", "myo12345", "Gk337", "nyeinchanphyo", 
-                    "That1234", "phyo007", "zaw12345", "Naylin2023", "soenaing", 
-                    "kyawminhtike", "kohtet293", "KoKhant123", "thuzar", "Kyaw0000", 
-                    "zinko", "kaungg", "kaunggg", "winwin", "bobotun", 
-                    "Ttttt", "kolatt", "htayhtay", "aungthu123", "Koaung", 
-                    "koko123456", "test2358", "nayko", "nayko123", "UKyaw", 
-                    "Saithiha", "koshine12", "Lin123", "haymanoo", "phyogyi", 
-                    "Soeaung", "soemoe151", "zinzin", "Aung2024", "yewin", 
-                    "Aungsan", "thuya123", "Zinhein1234", "NyeinNyein", "koko13579", 
-                    "AungWin2", "ThetPaing", "komaungmg", "aa123", "naynay", 
-                    "Thihatun", "kokok", "myatmyat", "yekyaw", "toetoe", 
-                    "Kyawoo", "Khing1234", "yarzar", "yelinhtet", "Minthant", 
-                    "kyawye", "komin", "24680", "Aunglay123", "Aungmyintmyat", 
-                    "minkoaung", "Aungkyaw123", "PyaeHlan123", "zinkoko", "Yokoh", 
-                    "MoeZat", "chitmin", "thuthu", "Gyigg", "aung999", 
-                    "Htetwaiphyo", "Lapyae", "KoSiThu", "sithulinn", "susuko", 
-                    "kyawz", "Luffy", "Moeoo", "Mayoo", "Phoekar", 
-                    "newday12345", "test52365", "yeNaung", "koko23564", "Zawminhtet", 
-                    "MinSet", "Win777", "Smile", "khinnyo", "soemoekyaw", 
-                    "aungkoko", "minthu", "myohtet", "Thetwai", "Aungsoemoe", 
-                    "kyaw7777", "winechit", "Astar", "HtetWai", "AungMoe123", 
-                    "1234567", "Winnaingoo", "A12345", "Aethar111", "kyawnaing", 
-                    "Thuyazaw", "Kyawmyo", "kokoo", "Aaa123", "maung12", 
-                    "Aunga", "Waiyan12345", "popo6669gyi66", "KoHtet1234", "arkarhein", 
-                    "kokozin", "Shine7", "zinminko", "Thu1500", "Winko", 
-                    "Thatpaingoo", "Shwe2023", "Linhtetoo", "ayemintun", "kyaw22", 
-                    "aungkyawsoe", "nyi123456", "HtweHtwe" // ဤအထိ မူရင်းစာရင်း ၁၇၀
-                ];
                 
-                const newUsers30 = [
-                    "Nanwai1990", "mgkclone", "pyaesoneaung78", "rmh055", "MinOppa1234",
-                    "Kmk1234", "NgaNyi332567", "kpo888", "yewinkhunt", "nco33",
-                    "Yamin3344", "Kmm77", "batterflyqueen", "aung0770", "yyll666",
-                    "Keetzy", "khinthidar332", "9756889639", "9987680808", "aakk2024",
-                    "Paul13", "Jessy7", "56376836", "Yn333", "CHIPHAW",
-                    "Kekeke", "Kth570", "9791064108", "koaungzinmoe19", "kkn1994"
+                // အသစ်ပေးထားသော username ၁၉၉ ခုကို အစားထိုးလိုက်သည်
+                const usernames = [
+                    "Mgmggyi1988", "thawg99", "RKM1992", "Chaw518", "Htetwai99", 
+                    "Khinawe11", "sithu113", "moemoee1996", "htut24", "Bigmouth121", 
+                    "win55", "aungzinmoe1997", "luc13720", "aye439", "khinthidar332", 
+                    "hlaing112", "zero19", "phootz28", "Aungzinmoe25", "lwin99", 
+                    "koaungzinmoe2025", "koaungzinmoe19", "aakk2024", "aungzinmoe19", 
+                    "satanice666", "Khin19", "aungzinmoe1996", "aung135790", "htun112", 
+                    "Honey998876", "PeBee", "65432", "MgPhyu", "TunWaiSoe9", 
+                    "yongzhengwangcha", "popo6669gyi66", "Myokoko1990", "bobotun", 
+                    "san123", "yewin", "Kyawmyo", "ye11101995", "AA3399", 
+                    "Bagyisan", "deerr", "yeminko", "Min1111", "tha123456", 
+                    "tunminkyaw", "newday12345", "Lawemon", "komaungmg", "naykha", 
+                    "chitkoung", "thathtar", "aungaung23", "minkhant2006", "Pyone", 
+                    "lin2345", "Mawmaw", "minkoaung", "123mc", "Qwert890", 
+                    "ShineYan16", "sawwin", "sanminaung", "akk6789", "qwe12345", 
+                    "Mercury", "Monlay", "Minthant", "htetyan", "chitkhon25", 
+                    "Sanko", "koko123456789", "mm1420", "kyawko50", "Myint1234", 
+                    "taetae", "Punk99", "gkk99marmarsoe", "ck124", "testagentacc", 
+                    "naymyotun", "Linhtetoo", "OOsoe345", "LinHtet1998", "m1y2a3t", 
+                    "Zweko", "AaKyawzinsoe", "MyoMinHtet", "Smile", "asky25600", 
+                    "Utinzaw", "Naing13579", "Aungthapyay", "NgweZinTun", "KyawLinThu", 
+                    "khunzaw123", "aungthan", "YinHtwe", "kyithar007", "SomyingYupaphin", 
+                    "gkk99htoo", "testbank99", "Arkarhtet", "JuuJuu", "ZMA564", 
+                    "KOMYO7953", "thetkhing", "Tun778018", "Wai32", "ayelwinoo", 
+                    "htwe111", "WaiZinHtet", "MiNpaingoo", "Kyawtheinsoe", "tinyu", 
+                    "NIGHTMARE3", "Ethan", "testthb", "thuya111", "soewin99", 
+                    "Zawmaung", "WintLuu", "kyipyar", "Sp135", "kyawlynn", 
+                    "zarniii", "Heinzawhtet", "Tinkokotun246", "AungSanLin", "Boss654321", 
+                    "saikoaung", "9698103086", "testads", "TZA709", "GGGG999", 
+                    "mgmgsoe90", "mgtheinaung", "kyawkyawwin12345", "NoNo1", "gamer22", 
+                    "gamer21", "winner22", "winner21", "yongzheng11", "yongzheng9", 
+                    "yongzheng8", "yongzheng7", "yongzheng6", "yongzheng5", "yongzheng4", 
+                    "yongzheng3", "yongzheng2", "yongzheng1", "yongzheng", "yongzhengw", 
+                    "yongzhengwa", "yongzhengwan", "yongzhengwang", "yongzhengwangc", 
+                    "yongzhengwangch", "hnin834", "Kohtet08", "test2222", "Hayman", 
+                    "Thet111", "channyeinaung", "khainghtoo", "naylinko", "tzh189234", 
+                    "Aungkhant22", "santun", "Bagyilin", "saithtetthu", "sai145", 
+                    "Warrte", "htet1991", "A6872242", "hteat111", "Kaung1800", 
+                    "Sumyat332", "seinkyaw85", "khing234", "ThetNaing123", "Karkuzar", 
+                    "painglay8888", "Eikhin", "Thandarwin", "Kyawthulwin", "Zinmoeaung", 
+                    "phyusin666", "Aung726", "Sein199666666666", "Sawaung", "Hanwinaung", 
+                    "9693290634", "winnin7980", "PTOJADE"
                 ];
 
-                // စုစုပေါင်း စာရင်း (၁၇၀ + ၃၀ = ၂၀၀)
-                const usernames = originalUsernames170.concat(newUsers30);
-                
                 const fragment = document.createDocumentFragment();
 
-                // စာရင်းအရှည်ကို ၂၀၀ အတိ သတ်မှတ်ထားသည်
-                const listLength = 200; 
+                // စုစုပေါင်း စာရင်းအရှည်ကို အသစ်ပေးထားသော စာရင်းအတိုင်း (၁၉၉) သတ်မှတ်သည်
+                const listLength = usernames.length; 
 
                 for (let i = 0; i < listLength; i++) {
                     
